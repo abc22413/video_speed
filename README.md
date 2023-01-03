@@ -1,2 +1,2 @@
-# video_speed
- Video speed controller plugin
+# video speed
+ Video speed controller plugin for Chrome
