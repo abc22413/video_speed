@@ -1,0 +1,11 @@
+{
+    "name": "Video Speed Controller",
+    "version": "1.0.0",
+    "description": "Chrome video speed controller",
+    "manifest_version": 3,
+    "author": "Mevalonolactone",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Video Speed Controller"
+    }
+}
