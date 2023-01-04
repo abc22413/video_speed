@@ -13,11 +13,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Utility function: Update speed --> Change Display and Execute speed change
     function speed_change(new_speed, by_slider=false) {
-        speed = parseFloat(new_speed).toFixed(2)
-        current_speed.innerHTML = `<p>Current Speed: <b>${parseFloat(speed).toFixed(2)}x</b></p>`;
-        speed_slider_label.innerHTML = `${parseFloat(speed).toFixed(2)}x`;
-        if (by_slider === false) {
-            speed_select_slider.value = speed;
+        try {
+            //Execute speed change
+            
+
+            //Change speed global variable
+            speed = parseFloat(new_speed).toFixed(2)
+            //Change Displays
+            current_speed.innerHTML = `<p>Current Speed: <b>${parseFloat(speed).toFixed(2)}x</b></p>`;
+            speed_slider_label.innerHTML = `${parseFloat(speed).toFixed(2)}x`;
+            if (by_slider === false) {
+                speed_select_slider.value = speed;
+            }
+        }
+        catch {
+            alert("Speed change was unsuccessful");
         }
     }
 

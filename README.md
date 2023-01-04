@@ -13,13 +13,18 @@ Video speed controller plugin for Chrome. Optimized for HTML5 videos and Panopto
 - Select speed via slider
 
 ## Todos
-### v1
-- panopto
+### v1.0
+- html5 switching
+
+### v1.1
+- Panopto
 - Use popup instead of alerts
+
+### v1.2
+- Allow enable/disable
 - Allow color personalization and persistence
 
 ### v2
-- Allow enable/disable
 - Allow blocklists
 - Allow personalization of speed presets
 - Allow shortcuts & customized keybinding
