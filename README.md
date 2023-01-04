@@ -29,3 +29,4 @@ Video speed controller plugin for Chrome. Optimized for HTML5 videos and Panopto
 - Allow personalization of speed presets
 - Allow shortcuts & customized keybinding
 - Allow personalization of slider notches
+- Language

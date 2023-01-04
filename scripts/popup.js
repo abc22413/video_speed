@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function speed_change(new_speed, by_slider=false) {
         try {
             //Execute speed change
-            
+
 
             //Change speed global variable
             speed = parseFloat(new_speed).toFixed(2)
@@ -68,10 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
     //Generate button presets
     var innerhtml_inject_1 = "";
     var innerhtml_inject_2 = "";
-    for (let i=0; i<Math.floor(preset_speeds.length/2); i++) {
+    for (let i=0; i<Math.ceil(preset_speeds.length/2); i++) {
         innerhtml_inject_1 += `<button id='preset-btn-${i}' class='preset-btn'>${preset_speeds[i].toFixed(1)}x</button>`;
     }
-    for (let i=Math.floor(preset_speeds.length/2); i<preset_speeds.length; i++) {
+    for (let i=Math.ceil(preset_speeds.length/2); i<preset_speeds.length; i++) {
         let rounding_precision = 1
         //Accomodate 10+
         if (preset_speeds[i] > 10) {
