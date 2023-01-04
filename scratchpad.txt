@@ -1,0 +1,41 @@
+/*chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if(request.method == "changeSpeed"){
+            document.querySelector('video')?.playbackRate = 0.5;
+            sendResponse({method: "changeSpeed"});
+        }
+    }
+)*/
+
+/*
+document.addEventListener('DOMContentLoaded', function () {
+
+    console.log("the doc loaded");
+
+    var speed = 1.0;
+    var select_speed_text = document.getElementById('speed-select-label');
+    var select_speed_submit = document.getElementById('speed-select-submit');
+    var speed_form = document.getElementById("speed-select");
+
+    select_speed_submit.addEventListener('click', function() {
+        document.querySelector('video').playbackRate = 0.5;
+    }, false);
+}, false);
+
+document.addEventListener('DOMContentLoaded', () => {
+    var speed = 1.0
+    var select_speed_text = document.getElementById('speed-select-label')
+    var select_speed_submit = document.getElementById('speed-select-submit')
+
+    chrome.tabs.getSelected(null, (tab) => {
+        alert("Hello World")
+    })
+
+    var form = document.getElementById("speed-select")
+    console.log(form)
+    form.addEventListener('submit', function(e) {
+        e.preventDefault()
+        console.log("added to the form")
+    })
+})
+*/

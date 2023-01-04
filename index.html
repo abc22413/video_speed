@@ -4,10 +4,27 @@
 <head>
     <title>Video Speed Controller</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/popup.css">
+    <script src="./scripts/popup.js"></script>
 </head>
 
 <body>
-    <h1>Hello world!</h1>
+    <div id="title">
+        <h2>Video Speed Controller</h2>
+    </div>
+
+    <div id="current-speed">
+        <p>Current Speed: <b>1.00</b></p>
+    </div>
+
+    <div id="select">
+        <div id="speed-select">
+            <label for="speed-select-input">Select (1-16x):</label>
+            <input type="text" id="speed-select-input">
+            <button id="speed-select-submit">Submit</button>
+            <!-- <input type="submit" id="speed-select-submit" value="Submit"> -->
+        </div>
+    </div>
 </body>
-<script src="script.js"></script>
+
 </html>
