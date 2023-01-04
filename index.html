@@ -13,16 +13,34 @@
         <h2>Video Speed Controller</h2>
     </div>
 
-    <div id="current-speed">
-        <p>Current Speed: <b>1.00</b></p>
-    </div>
+    <div id="main">
+        <div id="current-speed">
+            <p>Current Speed: <b>1.00x</b></p>
+        </div>
 
-    <div id="select">
-        <div id="speed-select">
-            <label for="speed-select-input">Select (1-16x):</label>
-            <input type="text" id="speed-select-input">
-            <button id="speed-select-submit">Submit</button>
-            <!-- <input type="submit" id="speed-select-submit" value="Submit"> -->
+        <div id="text-select">
+            <div>
+                <label for="speed-select-input" id="speed-select-label">Select (1-16x):</label>
+                <input type="text" id="speed-select-input" value="">
+            </div>
+            <div>
+                <button id="speed-select-submit">Enter</button>
+            </div>
+        </div>
+
+        <!-- Programmatically inject to allow easier edits later-->
+        <div id="preset-select">
+            <div id="preset-1">
+
+            </div>
+            <div id="preset-2">
+
+            </div>
+        </div>
+
+        <div id="slider-select">
+            <label for="speed-select-slider" id="speed-slider-label">1.00x</label>
+            <input type="range" min="0.00" max="16.00" step="0.25" value="1.00" id="speed-select-slider">
         </div>
     </div>
 </body>

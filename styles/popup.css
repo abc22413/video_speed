@@ -1,13 +1,32 @@
-#title {
-    text-align: center;
-}
-
 body {
-    height: 150px;
+    height: 200px;
     width: 250px;
     margin-left: 12px;
     margin-right: 12px;
-    background-color: #7393B3;
+    margin-top: 0px;
+    padding-top: 0px;
+    background: linear-gradient(330deg, #02aab0, #00cdac);
+}
+
+#main {
+    background-color: blue;
+    margin-top: 0px;
+    padding-top: 0px;
+    height: 85%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#title {
+    text-align: center;
+    height: 12%;
+}
+
+#text-select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #speed-select-input {
@@ -15,9 +34,6 @@ body {
 }
 
 #speed-select-submit {
-    margin-top: 15px;
-    width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
 }

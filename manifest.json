@@ -30,7 +30,9 @@
 
     "content_scripts": [
         {
-            "js": ["./scripts/content.js"],
+            "js": [
+                "./scripts/content.js"
+            ],
             "matches": [
                 "<all_urls>"
             ]
