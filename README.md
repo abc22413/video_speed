@@ -2,7 +2,7 @@
 Video speed controller plugin for Chrome. Optimized for HTML5 videos and Panopto.
 
 ## Installation
-1. Download the [zip file](https://github.com/abc22413/video_speed/archive/refs/tags/Release.zip) and unzip the folder
+1. Download the [extension's zip file](https://github.com/abc22413/video_speed/archive/refs/tags/Release.zip) and unzip the folder
 2. Go to chrome://extensions
 3. Enable developer mode
 4. Click "Load Unpacked" and select the extracted folder
