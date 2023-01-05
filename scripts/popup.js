@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     //Presets
-    var preset_speeds = [0.50, 1.00, 1.50, 2.00, 3.00, 5.00, 7.00, 16.00];
+    var preset_speeds = [0.50, 1.00, 1.50, 2.00, 3.00, 4.00, 5.00, 16.00];
     //Global variables
     var speed = 1.00;
     var current_speed = document.getElementById('current-speed');
@@ -11,23 +11,33 @@ document.addEventListener('DOMContentLoaded', function() {
     var speed_select_slider = document.getElementById('speed-select-slider');
     var speed_slider_label = document.getElementById('speed-slider-label');
 
-    //Utility function: Update speed --> Change Display and Execute speed change
-    function speed_change(new_speed, by_slider=false) {
+    //Utility function: Change displays
+    function update_display(new_speed) {
+        current_speed.innerHTML = `<p>Current Speed: <b>${parseFloat(speed).toFixed(2)}x</b></p>`;
+        speed_slider_label.innerHTML = `${parseFloat(speed).toFixed(2)}x`;
+        speed_select_slider.value = speed;
+    }
+
+    //Utility function: Execute speed change --> Update popup
+    function speed_change(new_speed) {
         try {
-            //Execute speed change
-
-
-            //Change speed global variable
-            speed = parseFloat(new_speed).toFixed(2)
-            //Change Displays
-            current_speed.innerHTML = `<p>Current Speed: <b>${parseFloat(speed).toFixed(2)}x</b></p>`;
-            speed_slider_label.innerHTML = `${parseFloat(speed).toFixed(2)}x`;
-            if (by_slider === false) {
-                speed_select_slider.value = speed;
-            }
+            //Message content.js to execute speed change
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {"purpose":"coelenterazine_change_video_speed", "new_speed": new_speed}, function(response) {
+                    if (response) {
+                        if (response.success === true) {
+                            speed = new_speed;
+                            update_display(new_speed)
+                        }
+                        else {
+                            //alert('Speed change failed');
+                        }
+                    }
+                });
+            });
         }
-        catch {
-            alert("Speed change was unsuccessful");
+        catch (err) {
+            console.log(err);
         }
     }
 
@@ -49,18 +59,15 @@ document.addEventListener('DOMContentLoaded', function() {
         else{
         //Invalid input
         if (isNaN(extracted_speed)===true) {
-            alert('Please input a decimal between 0-16');
+            //alert('Please input a decimal between 0-16');
         }
         //Input out of range
         else if (extracted_speed<0.00 || extracted_speed>16.00) {
-            alert('Please input a decimal between 0-16');
+            //alert('Please input a decimal between 0-16');
         }
         //Proper input
         else {
-            //Internal housekeeping
             speed_change(extracted_speed);
-            //Post message to alter video speed: popup->background->content
-
         }
         }
     }, false);
@@ -88,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Slider update display on movement
     speed_select_slider.addEventListener('input', function() {
-        speed_change(speed_select_slider.value, true);
+        speed_change(speed_select_slider.value);
     }, false);
 
 }, false)
