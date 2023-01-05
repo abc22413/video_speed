@@ -17,6 +17,7 @@ Video speed controller plugin for Chrome. Optimized for HTML5 videos and Panopto
 - Allow enable/disable
 - Allow color personalization and persistence
 - Known bug: displayed speed is lost each time window is closed
+- Known bug: extension times out after a while on Panopto
 
 ### v2
 - Allow blocklists
