@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Slider update display on movement
     speed_select_slider.addEventListener('input', function() {
-        speed_change(speed_select_slider.value);
+        speed_change(parseFloat(speed_select_slider.value).toFixed(2));
     }, false);
 
 }, false)
