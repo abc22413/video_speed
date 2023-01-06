@@ -1,6 +1,6 @@
 {
     "name": "Video Speed Controller",
-    "version": "1.1.0",
+    "version": "1.1.3",
     "description": "Chrome video speed controller",
     "manifest_version": 3,
     "author": "Coelenterazine Studios",

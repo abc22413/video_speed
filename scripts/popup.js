@@ -68,6 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             //alert('Speed change failed');
                         }
                     }
+                    else if (chrome.runtime.lastError) {
+
+                    }
+                    else {
+                        
+                    }
                 });
             });
         }
