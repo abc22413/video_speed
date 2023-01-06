@@ -5,7 +5,7 @@ body {
     margin-right: 12px;
     margin-top: 0px;
     padding-top: 0px;
-    background: linear-gradient(330deg, #87CEEB, #87CEEB);
+    background-color: #87CEEB;
 }
 
 #main {
@@ -18,6 +18,13 @@ body {
     height: 12%;
     margin-bottom: 0px;
     padding-bottom: 0px;
+}
+
+#color-selector {
+    width: 27px;
+    height: 27px;
+    padding: 1px;
+    margin-left: 4px;
 }
 
 #text-select {

@@ -2,7 +2,31 @@ document.addEventListener('DOMContentLoaded', function() {
     //Presets
     var preset_speeds = [0.50, 1.00, 1.50, 2.00, 3.00, 4.00, 5.00, 16.00];
     //Global variables
+    //Retrieve speed
     var speed = 1.00;
+    chrome.storage.local.get("speed", function (result) {
+        if (chrome.runtime.lastError || result.speed === undefined) {
+            //Defualt behavior in failure is to change speed to 1.00
+            speed_change(1.00);
+        }
+        else {
+            //Successfully retrieved speed
+            speed_change(result.speed);
+        }
+    })
+    //Retrieve background_color
+    var background_color = '#87CEEB';
+    chrome.storage.local.get('background_color', function (result) {
+        if (chrome.runtime.lastError || result.background_color === undefined) {
+            //Default behavior in failure is to change background_color to sky blue
+            background_color_change('#87CEEB');
+        }
+        else {
+            //Successfully retrieved color
+            background_color_change(result.background_color);
+        }
+    })
+    //Display of current speed
     var current_speed = document.getElementById('current-speed');
     //Text input
     var speed_select_button = document.getElementById('speed-select-submit');
@@ -10,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
     //Slider input
     var speed_select_slider = document.getElementById('speed-select-slider');
     var speed_slider_label = document.getElementById('speed-slider-label');
+    //Color input
+    var background_color_input = document.getElementById('color-selector');
 
     //Utility function: Change displays
     function update_display(new_speed) {
@@ -48,6 +74,19 @@ document.addEventListener('DOMContentLoaded', function() {
         catch (err) {
             console.log(err);
         }
+    }
+
+    //Utility function: Execute color change
+    function background_color_change(new_color) {
+        background_color = new_color;
+        document.getElementById('body').style.backgroundColor = new_color;
+        //Save color for persistence
+        chrome.storage.local.set({'background_color':background_color}, function () {
+            if (chrome.runtime.lastError) {
+            }
+            else {
+            }
+        })
     }
 
     //Enter on text input triggers text input submit
@@ -107,16 +146,9 @@ document.addEventListener('DOMContentLoaded', function() {
         speed_change(parseFloat(speed_select_slider.value).toFixed(2));
     }, false);
 
-    //Retrieve previous settings
-    chrome.storage.local.get("speed", function (result) {
-        if (chrome.runtime.lastError || result.speed === undefined) {
-            //Defualt behavior in failure is to change speed to 1.00
-            speed_change(1.00);
-        }
-        else {
-            //Successfully retrieved speed
-            speed_change(result.speed);
-        }
-    })
+    //Color input update on selection
+    background_color_input.addEventListener('input', function() {
+        background_color_change(background_color_input.value);
+    }, false);
 
 }, false)
