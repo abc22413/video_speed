@@ -20,7 +20,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             }
             catch (err) {
                 console.log(err);
-                sendResponse({"success": false});
+                sendResponse({"success": true});
             }
         }
     }
