@@ -27,7 +27,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (response) {
                         if (response.success === true) {
                             speed = new_speed;
-                            update_display(new_speed)
+                            update_display(new_speed);
+
+                            //Save speed for persistence
+                            chrome.storage.local.set({"speed":speed}, function () {
+                                if (chrome.runtime.lastError) {
+                                }
+                                else {
+                                }
+                            })
+
                         }
                         else {
                             //alert('Speed change failed');
@@ -97,5 +106,17 @@ document.addEventListener('DOMContentLoaded', function() {
     speed_select_slider.addEventListener('input', function() {
         speed_change(parseFloat(speed_select_slider.value).toFixed(2));
     }, false);
+
+    //Retrieve previous settings
+    chrome.storage.local.get("speed", function (result) {
+        if (chrome.runtime.lastError || result.speed === undefined) {
+            //Defualt behavior in failure is to change speed to 1.00
+            speed_change(1.00);
+        }
+        else {
+            //Successfully retrieved speed
+            speed_change(result.speed);
+        }
+    })
 
 }, false)
