@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function background_color_change(new_color) {
         background_color = new_color;
         document.getElementById('body').style.backgroundColor = new_color;
+        background_color_input.value = background_color;
         //Save color for persistence
         chrome.storage.local.set({'background_color':background_color}, function () {
             if (chrome.runtime.lastError) {
